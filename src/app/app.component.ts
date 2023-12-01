@@ -126,21 +126,22 @@ export class AppComponent {
   }
 
   onTogglesListener(event: string) {
-    this.toggleMode = event;
-    if (this.toggleMode === "daily") {
-      if (this.processedDailyData.length!==0) {
-        this.dataChart = this.processedDailyData;
-      } else {
-        this.onTypeheadListener(["daily", this.symbol]);
-      }
-    } else if (this.toggleMode === "monthly") {
-      console.log(this.toggleMode);
-      if (this.processedMonthlyData.length!==0) {
-        this.dataChart = this.processedMonthlyData;
-      } else {
-        this.onTypeheadListener(["monthly", this.symbol]);
+    if (this.symbol) {
+      this.toggleMode = event;
+      if (this.toggleMode === "daily") {
+        if (this.processedDailyData.length!==0) {
+          this.dataChart = this.processedDailyData;
+        } else {
+          this.onTypeheadListener(["daily", this.symbol]);
+        }
+      } else if (this.toggleMode === "monthly") {
+        console.log(this.toggleMode);
+        if (this.processedMonthlyData.length!==0) {
+          this.dataChart = this.processedMonthlyData;
+        } else {
+          this.onTypeheadListener(["monthly", this.symbol]);
+        }
       }
     }
   }
-
 }

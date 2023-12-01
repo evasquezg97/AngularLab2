@@ -2,6 +2,7 @@
 
 <app-typehead [toggleMode]="toggleMode" [autoCompleteData]="processedAutocompleteData" (onTyping)="onTypeheadListener($event)" (onSelection)="onTypeheadListener($event)"/>
 
-<app-chart [multi]="dataChart"/>
-
-<app-toggles (onToggle)="onTogglesListener($event)"/>
+@if (symbol) {
+  <app-chart [multi]="dataChart"/>
+  <app-toggles (onToggle)="onTogglesListener($event)"/>
+}

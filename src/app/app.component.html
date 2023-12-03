@@ -1,8 +1,14 @@
-<h1>Avanzatch Financial</h1>
+<h1>Avanzatech Financial</h1>
 
 <app-typehead [toggleMode]="toggleMode" [autoCompleteData]="processedAutocompleteData" (onTyping)="onTypeheadListener($event)" (onSelection)="onTypeheadListener($event)"/>
 
 @if (symbol) {
-  <app-chart [multi]="dataChart"/>
-  <app-toggles (onToggle)="onTogglesListener($event)"/>
+  <app-chart [toggleMode]="toggleMode" [multi]="dataChart"/>
+  <div class = "toggle">
+    <app-toggles (onToggle)="onTogglesListener($event)"/>
+  </div>
 }
+
+<!-- <iframe width="500" height="500"
+        src="https://europa.nasa.gov/message-in-a-bottle/check-in?hash=vaCBwVVpXCHI1er4QXjCGMs%3D--xgcDrwHqNsR7zJVi--suDDgIyuMp01MPBeYkFhuw%3D%3D&embed=true"
+        frameborder="0"></iframe> -->

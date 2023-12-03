@@ -20,7 +20,7 @@ import { ChartData } from './models/data.model';
               TogglesComponent]
 })
 export class AppComponent {
-  title = 'AvanzatechFinancial_KW';
+  title = 'AvanzatechFinancialKW';
 
   private requestService = inject(RequestService);
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TypeheadComponent } from './typehead.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TypeheadComponent', () => {
   let component: TypeheadComponent;
@@ -8,10 +8,10 @@ describe('TypeheadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TypeheadComponent]
+      imports: [BrowserAnimationsModule, TypeheadComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TypeheadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

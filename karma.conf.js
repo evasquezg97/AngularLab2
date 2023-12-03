@@ -31,7 +31,15 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' },
         { type: 'text-summary' }
-      ]
+      ],
+      check: {
+        global: {
+          statements: 1,
+          branches: 1,
+          functions: 1,
+          lines: 1
+        }
+      }
     },
     reporters: ['mocha'],
     browsers: ['ChromeHeadless'],

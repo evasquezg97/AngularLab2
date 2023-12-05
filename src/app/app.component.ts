@@ -31,14 +31,14 @@ export class AppComponent {
   dataChart!: ChartData[];
   toggleMode: string = "daily";
 
-  private processAutocompleteData(data: Autocomplete) {
+  processAutocompleteData(data: Autocomplete) {
     this.processedAutocompleteData.length = 0;
     for (let option in data["bestMatches"]) {
       this.processedAutocompleteData.push([data["bestMatches"][option]["1. symbol"], data["bestMatches"][option]["2. name"]]);
     }
   }
 
-  private processChartData(type: RequestType, data: any) {
+  processChartData(type: RequestType, data: any) {
     if (type === "daily") {
       let firstDay: Date | string | null = null;
       let result = [];

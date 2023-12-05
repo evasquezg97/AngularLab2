@@ -29,7 +29,7 @@ export class RequestService {
     if (type === "monthly") {
       return this.http.get<MonthlyData>(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${symbol}&apikey=${this.apiKey}`)
     }
-    return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=a&apikey=${this.apiKey}`);
+   return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=a&apikey=${this.apiKey}`);
   }
 
 }

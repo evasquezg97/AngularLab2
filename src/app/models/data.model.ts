@@ -22,8 +22,7 @@ export interface MonthlyData {
     "1. Information": string;
     "2. Symbol": string;
     "3. Last Refreshed": string;
-    "4. Output Size": string;
-    "5. Time Zone": string;
+    "4. Time Zone": string;
   };
   "Monthly Time Series": {
     [date: string]: {
@@ -37,11 +36,11 @@ export interface MonthlyData {
 }
 
 export interface ChartData {
-  "name":   string;
+  "name": string;
   "series": ChartPointModel[];
 }
 
 export interface ChartPointModel {
-  "name":  string;
+  "name": string;
   "value": string;
 }

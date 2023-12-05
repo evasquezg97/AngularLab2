@@ -15,38 +15,37 @@ export class InitService {
 
   dailyDataInit: DailyData = {
     "Meta Data": {
-      "1. Information": "",
-      "2. Symbol": "",
-      "3. Last Refreshed": "",
-      "4. Output Size": "",
-      "5. Time Zone": ""
+      "1. Information": "Daily Prices (open, high, low, close) and Volumes",
+      "2. Symbol": "IBM",
+      "3. Last Refreshed": "2023-12-01",
+      "4. Output Size": "Compact",
+      "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
-      "initialization": {
-        "1. open": "",
-        "2. high": "",
-        "3. low": "",
-        "4. close": "",
-        "5. volume": ""
+      "2023-12-01": {
+        "1. open": "158.4100",
+        "2. high": "160.5900",
+        "3. low": "158.0000",
+        "4. close": "160.5500",
+        "5. volume": "4871860"
       }
     }
   };
 
   monthlyDataInit: MonthlyData = {
     "Meta Data": {
-      "1. Information": "",
-      "2. Symbol": "",
-      "3. Last Refreshed": "",
-      "4. Output Size": "",
-      "5. Time Zone": ""
+      "1. Information": "Monthly Prices (open, high, low, close) and Volumes",
+      "2. Symbol": "IBM",
+      "3. Last Refreshed": "2023-12-01",
+      "4. Time Zone": "US/Eastern"
     },
-      "Monthly Time Series": {
-      "initialization": {
-        "1. open": "",
-        "2. high": "",
-        "3. low": "",
-        "4. close": "",
-        "5. volume": ""
+    "Monthly Time Series": {
+      "2023-12-01": {
+        "1. open": "158.4100",
+        "2. high": "160.5900",
+        "3. low": "158.0000",
+        "4. close": "160.5500",
+        "5. volume": "4871860"
       }
     }
   };
@@ -54,15 +53,15 @@ export class InitService {
   autoComplete: Autocomplete = {
     "bestMatches": [
       {
-        "1. symbol": "",
-        "2. name": "",
-        "3. type": "",
-        "4. region": "",
-        "5. marketOpen": "",
-        "6. marketClose": "",
-        "7. timezone": "",
-        "8. currency": "",
-        "9. matchScore": ""
+        "1. symbol": "TSCO.LON",
+        "2. name": "Tesco PLC",
+        "3. type": "Equity",
+        "4. region": "United Kingdom",
+        "5. marketOpen": "08:00",
+        "6. marketClose": "16:30",
+        "7. timezone": "UTC+01",
+        "8. currency": "GBX",
+        "9. matchScore": "0.7273"
       }
     ]
   };

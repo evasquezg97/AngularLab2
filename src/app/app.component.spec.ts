@@ -2,27 +2,30 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Component, DebugElement } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { RequestService } from './services/request.service';
 import { RequestType } from './models/request.model';
 import { of } from 'rxjs';
 import { InitService } from './services/init.service';
+import { provideToastr, ToastrService } from 'ngx-toastr';
 
 describe('AppComponent', () => {
   let app: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let initService: InitService;
   let requestService: RequestService;
+  let toastrService: ToastrService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, AppComponent, HttpClientTestingModule],
-      providers: [InitService, RequestService]
+      providers: [InitService, RequestService, ToastrService, provideToastr()]
     }).compileComponents();
 
     initService = TestBed.inject(InitService);
     requestService = TestBed.inject(RequestService);
+    toastrService = TestBed.inject(ToastrService);
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     fixture.detectChanges();
@@ -51,7 +54,7 @@ describe('AppComponent', () => {
   });
 
   it('should call processAutocompleteData when autocomplete data is received', () => {
-    const mockData = initService.autoComplete; // replace with your mock data
+    const mockData = initService.autoComplete;
     const mockEvent: [RequestType, string] = ['autocomplete', 'mockSymbol'];
 
     spyOn(requestService, 'getData').and.returnValue(of(mockData));
@@ -63,7 +66,7 @@ describe('AppComponent', () => {
   });
 
   it('should call processChartData when daily data is received', () => {
-    const mockData = {};
+    const mockData = initService.dailyDataInit;
     const mockEvent: [RequestType, string] = ['daily', 'mockSymbol'];
 
     spyOn(requestService, 'getData').and.returnValue(of(mockData));
@@ -75,7 +78,7 @@ describe('AppComponent', () => {
   });
 
   it('should call processChartData when monthly data is received', () => {
-    const mockData = {};
+    const mockData = initService.monthlyDataInit;
     const mockEvent: [RequestType, string] = ['monthly', 'mockSymbol'];
 
     spyOn(requestService, 'getData').and.returnValue(of(mockData));

@@ -30,14 +30,14 @@ describe('RequestService', () => {
       const mockAutocomplete: Autocomplete = initService.autoComplete;
 
       //Act
-      requestService.getData("autocomplete", "tesco").subscribe((data) => {
+      requestService.getData("autocomplete", "tesco").subscribe((data: any) => {
         //Assert
         expect(data).toEqual(mockAutocomplete);
         doneFn();
       });
 
       //HTTP configuration
-      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo");
+      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=Q8VU1QF7QFZ0X9QH");
       request.flush(mockAutocomplete);
       HTTPController.verify();
     });
@@ -47,14 +47,14 @@ describe('RequestService', () => {
       const mockMonthlyData: MonthlyData = initService.monthlyDataInit;
 
       //Act
-      requestService.getData("monthly", "IBM").subscribe((data) => {
+      requestService.getData("monthly", "IBM").subscribe((data: any) => {
         //Assert
         expect(data).toEqual(mockMonthlyData);
         doneFn();
       });
 
       //HTTP configuration
-      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=demo");
+      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=Q8VU1QF7QFZ0X9QH");
       request.flush(mockMonthlyData);
       HTTPController.verify();
     });
@@ -64,14 +64,14 @@ describe('RequestService', () => {
       const mockDailyData: DailyData = initService.dailyDataInit;
 
       //Act
-      requestService.getData("daily", "IBM").subscribe((data) => {
+      requestService.getData("daily", "IBM").subscribe((data: any) => {
         //Assert
         expect(data).toEqual(mockDailyData);
         doneFn();
       });
 
       //HTTP configuration
-      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo");
+      const request = HTTPController.expectOne("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=Q8VU1QF7QFZ0X9QH");
       request.flush(mockDailyData);
       HTTPController.verify();
     });

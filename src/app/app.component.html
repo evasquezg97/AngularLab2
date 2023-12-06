@@ -1,11 +1,11 @@
-<h1>Avanzatech Financial</h1>
+<h1 class="title">Avanzatech Financial</h1>
 
 <app-typehead [toggleMode]="toggleMode" [autoCompleteData]="processedAutocompleteData" (onTyping)="onTypeheadListener($event)" (onSelection)="onTypeheadListener($event)"/>
 
 @if (symbol) {
-  <app-chart [toggleMode]="toggleMode" [multi]="dataChart"/>
+  <app-chart [xAxisLabel]="toggleMode === 'daily' ? 'Last 30 Days': 'Last 12 months'" [multi]="dataChart"/>
   <div class = "toggle">
-    <app-toggles (onToggle)="onTogglesListener($event)"/>
+    <app-toggles [toggleMode]="toggleMode" (onToggle)="onTogglesListener($event)"/>
   </div>
 }
 

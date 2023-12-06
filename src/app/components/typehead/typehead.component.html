@@ -7,7 +7,7 @@
            matInput
            [formControl]="inputFormControl"
            [matAutocomplete]="auto"
-           (keyup)="onTypingHandler()"
+           (input)="onTypingHandler()"
            (keyup.enter)="onSelectionHandler()">
     <mat-autocomplete #auto="matAutocomplete">
       @for (option of autoCompleteData; track option) {

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartData } from '../../models/data.model';
 
@@ -9,30 +9,30 @@ import { ChartData } from '../../models/data.model';
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.css'
 })
-export class ChartComponent implements OnChanges {
-  view: [number, number] = [700, 300];
+export class ChartComponent {
+  view: [number, number] = [window.innerWidth > 1000 ? 700 : window.innerWidth, 300];
 
   @Input() multi!: ChartData[];
-  @Input() toggleMode: string = "daily";
+  @Input() xAxisLabel!: string;
 
   // options
-  legend: boolean = true;
+  legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = "daily";
   yAxisLabel: string = 'Stock Price [USD]';
   timeline: boolean = true;
   colorScheme = "cool"
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes["toggleMode"]) {
-    this.xAxisLabel = this.toggleMode === "daily" ? 'Last 30 days' : 'Last 12 months';
+
+  onResize(event: any) {
+    if (event.target.innerWidth < 1000) {
+      this.view = [event.target.innerWidth / 1.5, 300];
+    }
   }
-}
 
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));

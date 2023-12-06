@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-toggles',
@@ -10,10 +10,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 })
 export class TogglesComponent {
 
-   @Output() onToggle = new EventEmitter();
+  @Input() toggleMode!: string;
+  @Output() onToggle = new EventEmitter();
 
-   onToggleHandler(event: any) {
-     this.onToggle.emit((event.target as HTMLLabelElement).innerText.toLocaleLowerCase());
-   }
+  onToggleHandler(event: any) {
+    this.onToggle.emit((event.target as HTMLLabelElement).innerText.toLocaleLowerCase());
+  }
 
 }

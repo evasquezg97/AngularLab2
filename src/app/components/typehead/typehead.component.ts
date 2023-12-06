@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-typehead',
@@ -19,25 +19,31 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class TypeheadComponent {
   inputFormControl = new FormControl('',
-  {
-    nonNullable: true,
-    validators: [
-      Validators.required,
-      Validators.pattern('^[^\\s]+.*$')],
-  });
+    {
+      nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.pattern('^[^\\s]+.*$')],
+    });
 
   @Output() onTyping = new EventEmitter();
   @Output() onSelection = new EventEmitter();
-  @Input()  autoCompleteData!: [[string, string]];
+  @Input() autoCompleteData!: [[string, string]];
   @Input() toggleMode!: string;
 
+  debounce: any;
+
   onTypingHandler() {
-    if (this.inputFormControl.valid) {
+    clearTimeout(this.debounce);
+    this.debounce = setTimeout(() => {
       this.onTyping.emit(["autocomplete", this.inputFormControl.value]);
-    }
+    }, 300);
+
   }
 
   onSelectionHandler() {
-    this.onSelection.emit([this.toggleMode, this.inputFormControl.value]);
+    if (this.inputFormControl.valid) {
+      this.onSelection.emit([this.toggleMode, this.inputFormControl.value]);
+    }
   }
 }

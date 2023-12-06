@@ -1,4 +1,6 @@
 <ngx-charts-line-chart
+  (window:resize)="onResize($event)"
+  [autoScale]="true"
   [view]="view"
   [scheme]="colorScheme"
   [legend]="legend"

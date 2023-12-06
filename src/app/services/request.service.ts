@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { RequestType } from '../models/request.model';
 import { Autocomplete } from '../models/autocomplete.model';
 import { DailyData, MonthlyData } from '../models/data.model';
@@ -9,13 +9,13 @@ import { DailyData, MonthlyData } from '../models/data.model';
 })
 export class RequestService {
 
-  apiKey = "demo" //"Q8VU1QF7QFZ0X9QH";
+  apiKey = "Q8VU1QF7QFZ0X9QH" //"demo";
 
   constructor() { }
 
   http = inject(HttpClient);
 
-  getData(type: RequestType, symbol: string) {
+  getData(type: RequestType, symbol: string): any {
     //symbol = "tesco";
 
     if (type === "autocomplete") {
@@ -29,7 +29,6 @@ export class RequestService {
     if (type === "monthly") {
       return this.http.get<MonthlyData>(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${symbol}&apikey=${this.apiKey}`)
     }
-   return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=a&apikey=${this.apiKey}`);
   }
 
 }

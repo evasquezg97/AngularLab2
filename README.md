@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
+# IMPORTANT
+
+The API has a limit of 25 request daily per token. If the message API error is displayed on the first tries, please use a VPN.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

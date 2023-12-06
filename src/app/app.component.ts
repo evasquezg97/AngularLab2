@@ -186,7 +186,6 @@ export class AppComponent implements OnInit {
           this.onTypeheadListener(["daily", this.symbol]);
         }
       } else if (this.toggleMode === "monthly") {
-        console.log(this.toggleMode);
         if (this.processedMonthlyData.length !== 0) {
           this.dataChart = this.processedMonthlyData;
         } else {
